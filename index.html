@@ -1,236 +1,287 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WWW - World Wide Web</title>
+<title>WWW.exe</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
+*{box-sizing:border-box}
 body{
-background:#060606;
-color:#00ff99;
-font-family:Courier New,monospace;
-overflow-x:hidden;
+margin:0;
+background:#000;
+color:#00ff88;
+font-family:"Courier New",monospace;
+height:100vh;
+overflow:hidden;
 }
-body::before{
+
+body:after{
 content:"";
 position:fixed;
-width:100%;
-height:100%;
+inset:0;
 background:repeating-linear-gradient(
-to bottom,
-transparent 0px,
+0deg,
+rgba(0,255,120,.05),
+rgba(0,255,120,.05) 1px,
 transparent 2px,
-rgba(255,255,255,.03) 3px
-);
+transparent 4px);
 pointer-events:none;
 }
-header{
-padding:20px;
-border-bottom:1px solid #00ff99;
-display:flex;
-justify-content:space-between;
-align-items:center;
+
+.window{
+width:90%;
+height:85%;
+margin:5vh auto;
+border:2px solid #00ff88;
+background:#050505;
+box-shadow:0 0 20px #00ff88;
 }
-.logo{
-font-size:35px;
+
+.title{
+background:#00ff88;
+color:#000;
+padding:8px;
 font-weight:bold;
-animation:glitch 2s infinite;
 }
-nav a{
-color:#00ff99;
-text-decoration:none;
-margin-left:20px;
-transition:.3s;
+
+.menu{
+padding:10px;
+border-bottom:1px solid #00ff88;
 }
-nav a:hover{
+
+.menu span{
+margin-right:20px;
+cursor:pointer;
+}
+
+.desktop{
+display:flex;
+height:90%;
+}
+
+.files{
+width:25%;
+border-right:1px solid #00ff88;
+padding:20px;
+}
+
+.folder{
+margin:20px 0;
+cursor:pointer;
+}
+
+.folder:hover{
 color:white;
 }
-.hero{
-padding:60px 30px;
-text-align:center;
-}
-.hero h1{
-font-size:60px;
-margin-bottom:15px;
-}
-.hero p{
-opacity:.8;
-}
-.btn{
-margin-top:30px;
-padding:12px 30px;
-background:#00ff99;
-color:black;
-border:none;
-cursor:pointer;
-font-weight:bold;
-transition:.3s;
-}
-.btn:hover{
-transform:scale(1.05);
-}
-.container{
-width:90%;
-max-width:1100px;
-margin:auto;
-padding:40px 0;
-}
-.card{
-border:1px solid #00ff99;
-padding:20px;
-margin-bottom:20px;
-background:#0b0b0b;
-}
-.card h2{
-margin-bottom:10px;
-}
-.gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-gap:15px;
-}
-.photo{
-height:150px;
-border:1px solid #00ff99;
-display:flex;
-justify-content:center;
-align-items:center;
-font-size:14px;
-}
-.notice{
-padding:15px;
-border-left:4px solid #00ff99;
-margin-top:10px;
-}
-footer{
-text-align:center;
+
+.screen{
+flex:1;
 padding:30px;
-border-top:1px solid #00ff99;
-margin-top:40px;
-font-size:14px;
-opacity:.7;
 }
+
+.logo{
+font-size:50px;
+font-weight:bold;
+animation:glitch 1s infinite;
+}
+
+.box{
+border:1px solid #00ff88;
+padding:20px;
+margin-top:20px;
+}
+
+button{
+background:#000;
+color:#00ff88;
+border:1px solid #00ff88;
+padding:10px;
+cursor:pointer;
+}
+
+button:hover{
+background:#00ff88;
+color:#000;
+}
+
 @keyframes glitch{
-0%{text-shadow:2px 0 red;}
-25%{text-shadow:-2px 0 cyan;}
-50%{text-shadow:2px 2px lime;}
-75%{text-shadow:-2px -2px blue;}
-100%{text-shadow:2px 0 red;}
+0%{text-shadow:2px 0 red}
+50%{text-shadow:-2px 0 blue}
+100%{text-shadow:2px 0 red}
 }
-.popup{
-position:fixed;
-right:20px;
-bottom:20px;
-padding:15px;
-background:black;
-border:1px solid #00ff99;
+
+.error{
+color:red;
 display:none;
 }
-@media(max-width:700px){
-.hero h1{font-size:40px;}
-nav{display:none;}
-}
+
 </style>
 </head>
 
 <body>
 
-<header>
-<div class="logo">WWW</div>
+<div class="window">
 
-<nav>
-<a href="#">HOME</a>
-<a href="#">TIMELINE</a>
-<a href="#">DIARY</a>
-<a href="#">GALLERY</a>
-<a href="#">NOTICE</a>
-</nav>
-</header>
-
-<section class="hero">
-<h1>WORLD WIDE WEB</h1>
-<p>Artist Promotion Website</p>
-<button class="btn" onclick="showPopup()">ENTER</button>
-</section>
-
-<div class="container">
-
-<div class="card">
-<h2>ARTIST PROFILE</h2>
-<p>Name : BmyV</p>
-<p>Debut : 2026</p>
-<p>Status : ONLINE</p>
+<div class="title">
+WWW.exe - World Wide Web
 </div>
 
-<div class="card">
-<h2>TIMELINE</h2>
-<p>07.23 Website Open</p>
-<p>08.01 First Promotion</p>
-<p>08.15 New Diary Update</p>
+<div class="menu">
+<span>FILE</span>
+<span>EDIT</span>
+<span>VIEW</span>
+<span>SYSTEM</span>
+<span>HELP</span>
 </div>
 
-<div class="card">
-<h2>DIARY</h2>
-<p>"Welcome to the World Wide Web."</p>
+
+<div class="desktop">
+
+<div class="files">
+
+<div class="folder" onclick="profile()">
+📁 PROFILE
 </div>
 
-<div class="card">
-<h2>GALLERY</h2>
+<div class="folder" onclick="world()">
+📁 WORLD
+</div>
 
-<div class="gallery">
-<div class="photo">PHOTO 01</div>
-<div class="photo">PHOTO 02</div>
-<div class="photo">PHOTO 03</div>
-<div class="photo">PHOTO 04</div>
+<div class="folder" onclick="archive()">
+📁 ARCHIVE
+</div>
+
+<div class="folder" onclick="secret()">
+📁 SECRET
 </div>
 
 </div>
 
-<div class="card">
-<h2>NOTICE</h2>
 
-<div class="notice">
-✔ Website launched successfully.
+<div class="screen">
+
+<div class="logo">
+WWW
 </div>
 
-<div class="notice">
-✔ New content coming soon...
+<p>
+WORLD WIDE WEB SYSTEM
+</p>
+
+<div class="box" id="content">
+
+STATUS : ONLINE<br>
+SIGNAL : 98%<br>
+VERSION : WWW_2026.exe
+
+<br><br>
+
+Please select a folder.
+
 </div>
+
 
 </div>
 
 </div>
 
-<footer>
-© 2026 WWW • WORLD WIDE WEB
-</footer>
-
-<div class="popup" id="popup">
-SYSTEM : Connection Established.
 </div>
+
 
 <script>
-function showPopup(){
-const p=document.getElementById("popup");
-p.style.display="block";
-setTimeout(()=>{
-p.style.display="none";
-},2500);
+
+let content=document.getElementById("content");
+
+
+function profile(){
+
+content.innerHTML=`
+
+<h2>PROFILE.exe</h2>
+
+GROUP : BmyV<br><br>
+
+STATUS : ONLINE<br><br>
+
+MEMBERS<br>
+----------------<br>
+
+● SEOLCHAEWON<br>
+● LEEWOOBIN<br>
+● SINGAEUN<br>
+● NAMWOOHYEON<br><br>
+
+MISSION<br>
+
+Connecting another world
+through music.
+
+`;
+
 }
 
-setInterval(()=>{
-document.querySelector(".logo").style.opacity=Math.random()*0.5+0.5;
-},150);
 
-document.querySelector(".btn").addEventListener("mouseover",()=>{
-document.querySelector(".btn").innerHTML="ACCESS";
-});
+function world(){
 
-document.querySelector(".btn").addEventListener("mouseout",()=>{
-document.querySelector(".btn").innerHTML="ENTER";
-});
+content.innerHTML=`
+
+<h2>WORLD.txt</h2>
+
+There was a forgotten network.<br><br>
+
+Deleted memories created signals.<br><br>
+
+Those signals became a new world.<br><br>
+
+<b>WORLD WIDE WEB</b>
+
+`;
+
+}
+
+
+function archive(){
+
+content.innerHTML=`
+
+<h2>archive.log</h2>
+
+[2026.07.23]<br><br>
+
+Connection Established...<br><br>
+
+Loading Database...<br><br>
+
+Found : 4 Members<br><br>
+
+System Stable.
+
+`;
+
+}
+
+
+function secret(){
+
+content.innerHTML=`
+
+<h2>ACCESS ERROR</h2>
+
+<span class="error">
+ERROR CODE : 404
+</span>
+
+<br><br>
+
+Unauthorized user detected.
+
+`;
+
+document.querySelector(".error").style.display="block";
+
+}
+
+
 </script>
 
 </body>
