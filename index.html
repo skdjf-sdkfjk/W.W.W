@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WWW - World Wide Web</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+background:#060606;
+color:#00ff99;
+font-family:Courier New,monospace;
+overflow-x:hidden;
+}
+body::before{
+content:"";
+position:fixed;
+width:100%;
+height:100%;
+background:repeating-linear-gradient(
+to bottom,
+transparent 0px,
+transparent 2px,
+rgba(255,255,255,.03) 3px
+);
+pointer-events:none;
+}
+header{
+padding:20px;
+border-bottom:1px solid #00ff99;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+.logo{
+font-size:35px;
+font-weight:bold;
+animation:glitch 2s infinite;
+}
+nav a{
+color:#00ff99;
+text-decoration:none;
+margin-left:20px;
+transition:.3s;
+}
+nav a:hover{
+color:white;
+}
+.hero{
+padding:60px 30px;
+text-align:center;
+}
+.hero h1{
+font-size:60px;
+margin-bottom:15px;
+}
+.hero p{
+opacity:.8;
+}
+.btn{
+margin-top:30px;
+padding:12px 30px;
+background:#00ff99;
+color:black;
+border:none;
+cursor:pointer;
+font-weight:bold;
+transition:.3s;
+}
+.btn:hover{
+transform:scale(1.05);
+}
+.container{
+width:90%;
+max-width:1100px;
+margin:auto;
+padding:40px 0;
+}
+.card{
+border:1px solid #00ff99;
+padding:20px;
+margin-bottom:20px;
+background:#0b0b0b;
+}
+.card h2{
+margin-bottom:10px;
+}
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:15px;
+}
+.photo{
+height:150px;
+border:1px solid #00ff99;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:14px;
+}
+.notice{
+padding:15px;
+border-left:4px solid #00ff99;
+margin-top:10px;
+}
+footer{
+text-align:center;
+padding:30px;
+border-top:1px solid #00ff99;
+margin-top:40px;
+font-size:14px;
+opacity:.7;
+}
+@keyframes glitch{
+0%{text-shadow:2px 0 red;}
+25%{text-shadow:-2px 0 cyan;}
+50%{text-shadow:2px 2px lime;}
+75%{text-shadow:-2px -2px blue;}
+100%{text-shadow:2px 0 red;}
+}
+.popup{
+position:fixed;
+right:20px;
+bottom:20px;
+padding:15px;
+background:black;
+border:1px solid #00ff99;
+display:none;
+}
+@media(max-width:700px){
+.hero h1{font-size:40px;}
+nav{display:none;}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">WWW</div>
+
+<nav>
+<a href="#">HOME</a>
+<a href="#">TIMELINE</a>
+<a href="#">DIARY</a>
+<a href="#">GALLERY</a>
+<a href="#">NOTICE</a>
+</nav>
+</header>
+
+<section class="hero">
+<h1>WORLD WIDE WEB</h1>
+<p>Artist Promotion Website</p>
+<button class="btn" onclick="showPopup()">ENTER</button>
+</section>
+
+<div class="container">
+
+<div class="card">
+<h2>ARTIST PROFILE</h2>
+<p>Name : BmyV</p>
+<p>Debut : 2026</p>
+<p>Status : ONLINE</p>
+</div>
+
+<div class="card">
+<h2>TIMELINE</h2>
+<p>07.23 Website Open</p>
+<p>08.01 First Promotion</p>
+<p>08.15 New Diary Update</p>
+</div>
+
+<div class="card">
+<h2>DIARY</h2>
+<p>"Welcome to the World Wide Web."</p>
+</div>
+
+<div class="card">
+<h2>GALLERY</h2>
+
+<div class="gallery">
+<div class="photo">PHOTO 01</div>
+<div class="photo">PHOTO 02</div>
+<div class="photo">PHOTO 03</div>
+<div class="photo">PHOTO 04</div>
+</div>
+
+</div>
+
+<div class="card">
+<h2>NOTICE</h2>
+
+<div class="notice">
+✔ Website launched successfully.
+</div>
+
+<div class="notice">
+✔ New content coming soon...
+</div>
+
+</div>
+
+</div>
+
+<footer>
+© 2026 WWW • WORLD WIDE WEB
+</footer>
+
+<div class="popup" id="popup">
+SYSTEM : Connection Established.
+</div>
+
+<script>
+function showPopup(){
+const p=document.getElementById("popup");
+p.style.display="block";
+setTimeout(()=>{
+p.style.display="none";
+},2500);
+}
+
+setInterval(()=>{
+document.querySelector(".logo").style.opacity=Math.random()*0.5+0.5;
+},150);
+
+document.querySelector(".btn").addEventListener("mouseover",()=>{
+document.querySelector(".btn").innerHTML="ACCESS";
+});
+
+document.querySelector(".btn").addEventListener("mouseout",()=>{
+document.querySelector(".btn").innerHTML="ENTER";
+});
+</script>
+
+</body>
+</html>
